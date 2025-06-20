@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.9, pytest-8.4.1, pluggy-1.6.0
+rootdir: /Users/rohitsahoo/Desktop/IntellectDesign
+plugins: anyio-4.9.0, langsmith-0.3.45, asyncio-1.0.0
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 9 items
+
+tests/test_calculator.py ..                                              [ 22%]
+tests/test_code_executor.py ..                                           [ 44%]
+tests/test_llm_agent.py .                                                [ 55%]
+tests/test_master_agent.py .                                             [ 66%]
+tests/test_rag_memory.py .                                               [ 77%]
+tests/test_task_planner.py F                                             [ 88%]
+tests/test_web_search.py .                                               [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_task_planner_plan ____________________________
+
+    @pytest.mark.asyncio
+    async def test_task_planner_plan():
+        planner = TaskPlannerAgent()
+        task = "Summarize the document and calculate the average."
+        state = {"query": task}
+        result = await planner.run(state)
+        assert isinstance(result, dict)
+        assert "steps" in result
+        assert any("summarize" in step.get("tool", "") for step in result["steps"])
+>       assert any("calculate" in step.get("tool", "") for step in result["steps"])
+E       assert False
+E        +  where False = any(<generator object test_task_planner_plan.<locals>.<genexpr> at 0x17cc531f0>)
+
+tests/test_task_planner.py:14: AssertionError
+=============================== warnings summary ===============================
+tests/test_llm_agent.py::test_llm_agent_strict_doc_qa
+  /Users/rohitsahoo/Desktop/IntellectDesign/app/memory/rag.py:12: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+    self.embedder = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_task_planner.py::test_task_planner_plan - assert False
+=================== 1 failed, 8 passed, 1 warning in 12.72s ====================

@@ -1,0 +1,37 @@
+# Python virtual environment
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+logs/
+
+# Data and vector DBs
+/data/
+
+# Gradio temp files
+*.gradio/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode and IDE settings
+.vscode/
+.idea/
+.DS_Store
+
+# Exported graphs
+langgraph_graph.*
+
+# Environment variables
+.env
+.env.*
+
+# Test cache
+.pytest_cache/
+
+# Mac system files
+.DS_Store 

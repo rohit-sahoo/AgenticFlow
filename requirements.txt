@@ -1,0 +1,13 @@
+gradio
+langchain
+groq
+langchain_groq
+langgraph==0.4.8
+langchain_tavily
+chromadb
+PyPDF2
+python-docx
+sentence_transformers
+python-dotenv
+aiohttp
+async-timeout 
