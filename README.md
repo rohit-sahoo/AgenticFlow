@@ -1,4 +1,4 @@
-# IntellectDesign: Modular LangGraph Agent Orchestration
+# AgenticFlow: Modular LangGraph Agent Orchestration
 
 A professional, modular AI agent platform built with LangGraph orchestration, powered by Groq's Llama 3. Features web search, code execution, calculations, document Q&A, robust memory (short-term, long-term, RAG), and a modern Gradio UI.
 
