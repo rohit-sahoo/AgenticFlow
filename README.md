@@ -16,7 +16,7 @@ A modular AI agent platform built with LangGraph orchestration, powered by Groq'
 
 Below is the actual framework for this system.
 
-![Multi Agent Framework](Agentic_Architecture.png)
+![Multi Agent Framework](Multi Agent Architecture.png)
 
 ## Features
 
