@@ -1,8 +1,8 @@
 # AgenticFlow: Modular LangGraph Agent Orchestration
 
-A professional, modular AI agent platform built with LangGraph orchestration, powered by Groq's Llama 3. Features web search, code execution, calculations, document Q&A, robust memory (short-term, long-term, RAG), and a modern Gradio UI.
+A modular AI agent platform built with LangGraph orchestration, powered by Groq's Llama 3. Features web search, code execution, calculations, document Q&A, robust memory (short-term, long-term, RAG), and a modern Gradio UI.
 
-## 🚀 What's New
+## Features
 
 - **Full LangGraph Orchestration**: All agent workflows are managed by a LangGraph state machine for clarity and extensibility.
 - **Strict Modular Agents**: Each tool (calculator, code, web search, summarizer, LLM) is a separate agent with clean interfaces.
@@ -12,11 +12,11 @@ A professional, modular AI agent platform built with LangGraph orchestration, po
 - **Graph Export**: Export the full workflow as Mermaid, PNG, or ASCII for easy visualization.
 - **Clean Logging**: Timestamped, event-based logs for high-level workflow auditing.
 
-## 🏗️ Architecture (LangGraph Workflow)
+## Architecture (Multi Agent Framework)
 
-Below is the actual workflow graph for this system. The image is auto-generated from the LangGraph orchestration:
+Below is the actual framework for this system.
 
-![LangGraph Workflow](./langgraph_graph.png)
+![Multi Agent Framework](Agentic_Architecture.png)
 
 ## ✨ Features
 
@@ -25,7 +25,6 @@ Below is the actual workflow graph for this system. The image is auto-generated 
 - **Memory**: Short-term, long-term, and RAG for context, follow-up, and document Q&A.
 - **Document Q&A**: Upload PDF/DOCX/TXT and ask questions; answers are strictly from the document.
 - **Modern Gradio UI**: File upload, chat bubbles, suggestions, and session memory.
-- **Graph Export**: Export workflow as Mermaid, PNG, or ASCII for documentation or debugging.
 - **Clean Logging**: Timestamped, event-based logs (no queries/results) for workflow auditing.
 
 ## 🛠️ Setup Instructions
@@ -81,30 +80,27 @@ python app/agents/master_agent.py
 
 You can view the Mermaid file at [mermaid.live](https://mermaid.live) or open the PNG directly.
 
-## 📝 Logging
+## Logging
 - Logs are written to `logs/` with timestamps and high-level events only (init, input, step start/end, finish).
 - No queries or results are logged for privacy and clarity.
 
-## 💻 Development
+## Development
 
 - Add new agents by subclassing `BaseAgent` and registering in `MasterAgent`.
 - Modify the workflow in `MasterAgent._build_graph()`.
 - All agents are async and modular.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## ⚠️ Assumptions & Limitations
+## Assumptions & Limitations
 
 - **Document Summarization**: Currently optimized for short documents (e.g., 2-page PDFs). For large documents, chunking and hierarchical summarization (summarize chunks, then summarize those summaries) would be needed for accurate results.
 - **Language Support**: Only English language is supported for queries, document Q&A, and summarization.
 - **Code Execution**: Only Python code is supported for execution. No support for other languages or system-level commands.
-- **Web Search**: Results depend on the web search API and may be subject to rate limits or incomplete coverage.
 - **Memory**: Short-term and long-term memory are session-based and not persisted across restarts unless explicitly implemented.
 - **RAG (Retrieval-Augmented Generation)**: Only works with documents uploaded in the current session. No persistent or external document store.
 - **File Types**: Document Q&A and summarization are tested with PDF, DOCX, and TXT files. Other formats may not be supported.
-- **Security**: Code execution is sandboxed but not fully isolated—do not upload or run untrusted code.
-- **LLM Model**: Uses Groq's Llama 3 via API; quality and speed depend on external service availability.
 
 If you need to scale to larger documents, multi-language support, or persistent memory, further engineering is required. 
