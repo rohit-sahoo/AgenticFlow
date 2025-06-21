@@ -15,7 +15,6 @@ class CodeAgent(BaseAgent):
         super().__init__(name="code_executor")
         self.executor = CodeExecutor()
         self.llm_agent = LLMAgent()
-        # Persistent namespace for the session
         self.session_namespace = {}
     
     async def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
@@ -38,7 +37,6 @@ class CodeAgent(BaseAgent):
         # Clean and extract code block
         code = self._extract_code_from_message(code)
         
-        # Try to execute the code in the persistent namespace
         result = self._run_code_with_namespace(code)
         
         # If syntax or indentation error, try to auto-fix with LLM
@@ -71,7 +69,6 @@ class CodeAgent(BaseAgent):
             code = code.strip()
             if not code:
                 return "(No code provided)"
-            # Use persistent namespace for the session
             with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
                 exec(code, self.session_namespace, self.session_namespace)
             result = output.getvalue().strip()

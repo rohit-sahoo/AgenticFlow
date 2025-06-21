@@ -104,7 +104,6 @@ class LLMAgent(BaseAgent):
         return state
 
     def _is_document_question(self, input_val: str) -> bool:
-        # Heuristic: look for document-related keywords
         document_keywords = [
             "document", "metrics", "summary", "content", "file", "upload", "resume", "paper", "report", "company", "work", "experience", "education", "where did", "which company", "who worked", "who is mentioned", "who appears", "who are", "list all", "name all"
         ]

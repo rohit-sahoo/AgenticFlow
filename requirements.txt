@@ -1,5 +1,6 @@
 gradio
 langchain
+langchain_community
 groq
 langchain_groq
 langgraph==0.4.8
@@ -10,4 +11,5 @@ python-docx
 sentence_transformers
 python-dotenv
 aiohttp
-async-timeout 
+async-timeout
+Markdown 

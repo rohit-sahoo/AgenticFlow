@@ -598,6 +598,31 @@ class MasterAgent(BaseAgent):
         self.logger.log_agent(agent_name, f"Step {step_num} input: {input_text}")
         self.logger.log_agent(agent_name, f"Step {step_num} output: {output_text}")
 
+    def _format_final_response(self, state: dict) -> dict:
+        """Formats the final response by combining results from all steps into a markdown string."""
+        final_response = "### ✅ All steps completed successfully!\n\n"
+        all_results = ""
+
+        # Iterate through the history of agent results
+        for i, step_result in enumerate(state.get("agent_results", [])):
+            agent_name = step_result.get("agent", "Unknown Agent")
+            output = step_result.get("output", "No output.")
+            
+            # Sanitize output for markdown
+            if isinstance(output, str):
+                output = output.replace('$', '\\$') # Escape dollar signs for markdown
+            else:
+                output = f"```\n{output}\n```"
+
+            all_results += f"### {agent_name} Results:\n{output}\n\n---\n\n"
+
+        if not all_results:
+            final_response = "No results were generated."
+        else:
+            final_response += all_results
+            
+        return {"final_response": final_response}
+
 if __name__ == "__main__":
     agent = MasterAgent()
     graph = agent.graph
