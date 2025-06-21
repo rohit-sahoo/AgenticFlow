@@ -61,12 +61,12 @@ This launches the Gradio UI for chat, file upload, and agent orchestration.
 - **Document Q&A**: "What analytics are present in the document?" (after uploading a file)
 - **Summary**: "Summarize this document" (after uploading a file)
 
-## 🧠 Memory & RAG
+## Memory & RAG
 - **Short-term**: Recent chat history for context.
 - **Long-term**: Facts and results for follow-up math and reasoning.
 - **RAG**: Uploaded documents are chunked and indexed for Q&A.
 
-## 🗺️ Exporting the Workflow Graph
+## Exporting the Workflow Graph
 
 You can export the LangGraph workflow as Mermaid, PNG, or ASCII for documentation or visualization:
 
