@@ -18,7 +18,7 @@ Below is the actual framework for this system.
 
 ![Multi Agent Framework](Agentic_Architecture.png)
 
-## ✨ Features
+## Features
 
 - **Task Planning**: LLM-driven planner breaks down complex queries into sequential steps.
 - **Strict Tool Routing**: Q&A always uses LLM+RAG, summaries use summarizer only, code/math routed correctly.
@@ -27,7 +27,7 @@ Below is the actual framework for this system.
 - **Modern Gradio UI**: File upload, chat bubbles, suggestions, and session memory.
 - **Clean Logging**: Timestamped, event-based logs (no queries/results) for workflow auditing.
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 1. **Clone the repository:**
    ```bash
@@ -45,7 +45,7 @@ Below is the actual framework for this system.
    ```
    You can also use a `.env` file for convenience.
 
-## 🎯 Usage
+## Usage
 
 ### Start the Application
 
